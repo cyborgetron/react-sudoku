@@ -1,23 +1,26 @@
 import React, { FC } from 'react'
 
+import Block from './block'
+import { Container, Row } from './styles'
+
 const Grid: FC = () => {
   // Other stuff coming
 
   return (
-    <div data-cy="grid-container">
+    <Container data-cy="grid-container">
       {React.Children.toArray(
         [...Array(9)].map((_, rowindex) => (
-          <div data-cy="grid-row-container">
+          <Row data-cy="grid-row-container">
             {/* Below: fixes key prop error with react.children... better pratice than using index as key */}
             {React.Children.toArray(
               [...Array(9)].map((_, colIndex) => (
-                <div data-cy="block">{colIndex}</div>
+                <Block colIndex={colIndex} rowIndex={rowindex}/>
               ))
             )}
-          </div>
+          </Row>
         ))
       )}
-    </div>
+    </Container>
   )
 }
 
