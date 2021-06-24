@@ -1,7 +1,11 @@
 import styled, { css } from 'styled-components'
 //import { theme } from '../../../styles'
 
-export const Container = styled.div`
+interface IProps {
+  active?: boolean
+}
+
+export const Container = styled.div<IProps>`
   display: flex;
   flex-direction: column;
   margin: 10px 0;
